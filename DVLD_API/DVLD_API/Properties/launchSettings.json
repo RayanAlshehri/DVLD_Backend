@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "DVLD_API": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger", // Open Swagger UI when running the project
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:61362;http://localhost:61363"
+    }
+  }
+}

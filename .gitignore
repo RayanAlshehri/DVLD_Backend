@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DVLD_API/.vs
+/DVLD_API/DVLD_API/.vs
+/DVLD_API/DVLD_API/bin
+/DVLD_API/DVLD_API/obj
+/DVLD_API/DVLD_API/app.config
+/DVLD_Business/.vs
+/DVLD_Business/DVLD_Business/.vs
+/DVLD_Business/DVLD_Business/bin
+/DVLD_Business/DVLD_Business/obj
+/DVLD_DataAccess/.vs
+/DVLD_DataAccess/DVLD_DataAccess/.vs
+/DVLD_DataAccess/DVLD_DataAccess/bin
+/DVLD_DataAccess/DVLD_DataAccess/obj
