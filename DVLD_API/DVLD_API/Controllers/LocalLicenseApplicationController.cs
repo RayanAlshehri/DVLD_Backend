@@ -62,19 +62,24 @@ namespace DVLD_API.Controllers
         }
 
         [HttpPost("addapplication")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<int> AddLocalLicenseApplication([FromBody] LocalLicenseApplicationDTO NewApplication)
         {
+            clsPerson Person = clsPerson.Find(NewApplication.ApplicantPersonID);
+
+            if (Person == null)
+                return BadRequest();
+
             if (clsLocalLicenseApplication.DoesPersonHaveNewApplicationForLicenseClass(
-                NewApplication.ApplicantPersonID, (clsLicenseClass.enLicenseClasses)NewApplication.LicenseClassID))
+                Person.ID, (clsLicenseClass.enLicenseClasses)NewApplication.LicenseClassID))
             {
                 return Conflict("Person already has a new application for the selected license class.");
-            }
+            }           
 
-            if (clsLicense.DoesPersonHaveLicenseForClass(
-                NewApplication.ApplicantPersonID, (clsLicenseClass.enLicenseClasses)NewApplication.LicenseClassID))
+            if (Person.HasLicenseForClass((clsLicenseClass.enLicenseClasses)NewApplication.LicenseClassID))
             {
                 return Conflict("Person already has license with the same selected license class.");
             }
