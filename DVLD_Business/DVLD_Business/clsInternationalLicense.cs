@@ -16,8 +16,7 @@ namespace DVLD_Business
         private enMode _Mode;
         public int ID { get; set; }
         public int ApplicationID { get; set; }
-
-        public clsDriver Driver;
+        public clsDriver Driver { get; set; }
         public int IssuedUsingLocalLicenseID { get; set; }
         public DateTime IssueDate { get;}
         public DateTime ExpiryDate { get; set; }
