@@ -143,8 +143,8 @@ namespace DVLD_API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult DeletePerson(string NationalNumber)
         {
-            if (!clsPerson.DoesPersonExist($"Person with national number {NationalNumber} was not found"))
-                return NotFound();
+            if (!clsPerson.DoesPersonExist(NationalNumber))
+                return NotFound($"Person with national number {NationalNumber} was not found");
 
             if (clsPerson.DeletePerson(NationalNumber))
                 return Ok();
