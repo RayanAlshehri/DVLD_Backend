@@ -37,7 +37,7 @@ namespace DVLD_API.Controllers
             return Ok(PersonsView);
         }
 
-        [HttpGet("bypersonid/{PersonID:int}")]
+        [HttpGet("by-person-id/{PersonID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsPerson> GetPerson(int PersonID)
@@ -52,7 +52,7 @@ namespace DVLD_API.Controllers
             return Ok(Person);
         }
 
-        [HttpGet("bynationalnumber/{NationalNumber}")]
+        [HttpGet("by-national-number/{NationalNumber}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsPerson> GetPerson(string NationalNumber)
@@ -65,7 +65,7 @@ namespace DVLD_API.Controllers
             return Ok(Person);
         }
 
-        [HttpPost("addperson")]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -122,7 +122,7 @@ namespace DVLD_API.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
-        [HttpDelete("{PersonID:int}")]
+        [HttpDelete("by-person-id/{PersonID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -137,7 +137,7 @@ namespace DVLD_API.Controllers
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
-        [HttpDelete("{NationalNumber}")]
+        [HttpDelete("by-national-number/{NationalNumber}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
