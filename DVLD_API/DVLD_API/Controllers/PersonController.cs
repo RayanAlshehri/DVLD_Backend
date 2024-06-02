@@ -65,8 +65,7 @@ namespace DVLD_API.Controllers
             return Ok(Person);
         }
 
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [HttpPost]       
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<int> AddPerson([FromBody]PersonDTO NewPerson)
@@ -93,7 +92,7 @@ namespace DVLD_API.Controllers
         }
 
         [HttpPut("{PersonID:int}")]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult UpdatePerson(int PersonID, [FromBody]PersonDTO UpdatedPerson)
@@ -101,7 +100,7 @@ namespace DVLD_API.Controllers
             clsPerson Person = clsPerson.Find(PersonID);
 
             if (Person == null)
-                return BadRequest($"Person with ID {PersonID} was not found");
+                return NotFound($"Person with ID {PersonID} was not found");
 
             Person.FirstName = UpdatedPerson.FirstName;
             Person.SecondName = UpdatedPerson.SecondName;
@@ -125,7 +124,7 @@ namespace DVLD_API.Controllers
         [HttpDelete("by-person-id/{PersonID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public ActionResult DeletePerson(int PersonID)
         {
             if (!clsPerson.DoesPersonExist(PersonID))
@@ -134,13 +133,13 @@ namespace DVLD_API.Controllers
             if (clsPerson.DeletePerson(PersonID))
                 return Ok();
 
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            return StatusCode(StatusCodes.Status409Conflict);
         }
 
         [HttpDelete("by-national-number/{NationalNumber}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public ActionResult DeletePerson(string NationalNumber)
         {
             if (!clsPerson.DoesPersonExist(NationalNumber))
@@ -149,7 +148,7 @@ namespace DVLD_API.Controllers
             if (clsPerson.DeletePerson(NationalNumber))
                 return Ok();
 
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            return StatusCode(StatusCodes.Status409Conflict);
         }
     }
 }
