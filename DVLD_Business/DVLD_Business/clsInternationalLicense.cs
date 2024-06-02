@@ -54,7 +54,7 @@ namespace DVLD_Business
             this.CreatedByUserID = CreatedByUserID;         
         }
 
-        public static clsInternationalLicense FindByInternationalLicenseID(int InternationalLicenseID)
+        public static clsInternationalLicense Find(int InternationalLicenseID)
         {
             int ApplicationID = -1;
             int DriverID = -1;
