@@ -84,11 +84,6 @@ namespace DVLD_Business
             return clsInternationalLicenseData.DoesLicenseExistByLocalLicenseID(IssuedUsingLocalLicenseID);
         }
 
-        public static DataTable GetAllDriverLicenses(int DriverID)
-        {
-            return clsInternationalLicenseData.GetAllDriverLicenses(DriverID);
-        }
-
         private bool _AddNewLicense()
         {
             this.ID = clsInternationalLicenseData.AddNewLicense(ApplicationID, Driver.ID, IssuedUsingLocalLicenseID,

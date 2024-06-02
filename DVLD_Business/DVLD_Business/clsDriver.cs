@@ -150,6 +150,11 @@ namespace DVLD_Business
             return CustomDT;
         }
 
+        public DataTable GetAllInternationalLicenses()
+        {
+            return clsInternationalLicenseData.GetAllDriverLicenses(ID);
+        }
+
         public bool HasLicenseForClass(clsLicenseClass.enLicenseClasses LicenseClass)
         {
             return clsLicenseData.DoesLicenseExistByDriverIDandClass(ID, (int)LicenseClass);
