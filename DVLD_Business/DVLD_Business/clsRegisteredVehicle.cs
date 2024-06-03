@@ -14,13 +14,11 @@ namespace DVLD_Business
         private enMode _Mode;
 
         public int ID { get; set; }
-
-        public clsDriver Driver;
+        public clsDriver Driver {get; set;}
         public string Make { get; set; }
         public string Model { get; set; }
         public int Year { get; set; }
-
-        public clsLicensePlate LicensePlate;
+        public clsLicensePlate LicensePlate { get; set; }
         public DateTime RegisterDate { get; }
         public int CreatedByUserID { get; set; }
 
