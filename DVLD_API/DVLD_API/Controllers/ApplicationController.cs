@@ -24,7 +24,7 @@ namespace DVLD_API.Controllers
             return Ok(Application);
         }
 
-        [HttpPost("addapplication")]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<int> AddApplication([FromBody] ApplicationDTO NewApplication)

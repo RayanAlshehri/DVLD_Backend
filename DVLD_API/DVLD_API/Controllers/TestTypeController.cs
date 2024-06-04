@@ -6,7 +6,7 @@ using System.Data;
 
 namespace DVLD_API.Controllers
 {
-    [Route("api/testtypes")]
+    [Route("api/test-types")]
     [ApiController]
     public class TestTypeController : ControllerBase
     {

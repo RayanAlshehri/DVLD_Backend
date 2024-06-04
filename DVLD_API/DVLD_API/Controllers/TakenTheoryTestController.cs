@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DVLD_API.Controllers
 {
-    [Route("api/takentheorytests")]
+    [Route("api/taken-theory-tests")]
     [ApiController]
     public class TakenTheoryTestController :ControllerBase
     {
-        [HttpGet("bytakentheorytestid/{TakenTheoryTestID:int}")]
+        [HttpGet("by-taken-theory-test-id/{TakenTheoryTestID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsTakenTheoryTest> GetTest(int TakenTheoryTestID)
@@ -21,7 +21,7 @@ namespace DVLD_API.Controllers
             return Ok(TakenTheoryTest);
         }
 
-        [HttpGet("bytakentestid/{TakenTestID:int}")]
+        [HttpGet("by-taken-test-id/{TakenTestID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsTakenTheoryTest> GetTestByTakenTestID(int TakenTestID)
@@ -54,7 +54,7 @@ namespace DVLD_API.Controllers
             return Ok(TakenTheoryTest.TakenTheoryTestID);
         }
 
-        [HttpGet("isgradepass/{Grade:int}")]
+        [HttpGet("is-grade-pass/{Grade:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<bool> IsGradePass(int Grade)

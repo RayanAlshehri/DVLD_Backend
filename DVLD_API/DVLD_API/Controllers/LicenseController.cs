@@ -8,7 +8,7 @@ namespace DVLD_API.Controllers
     [ApiController]
     public class LicenseController : ControllerBase
     {
-        [HttpGet("bylicenseid/{LicenseID:int}")]
+        [HttpGet("by-license-id/{LicenseID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsLicense> GetLicenseByLicenseID(int LicenseID)
@@ -23,7 +23,7 @@ namespace DVLD_API.Controllers
             return Ok(License);
         }
 
-        [HttpGet("byapplicationid/{ApplicationID:int}")]
+        [HttpGet("by-application-id/{ApplicationID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsLicense> GetLicenseByApplicationID(int ApplicationID)
@@ -38,7 +38,7 @@ namespace DVLD_API.Controllers
             return Ok(License);
         }
 
-        [HttpGet("{LicenseID:int}/isexpired")]
+        [HttpGet("{LicenseID:int}/is-expired")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<bool> IsLicenseExpired(int LicenseID)
@@ -51,7 +51,7 @@ namespace DVLD_API.Controllers
             return Ok(License.IsExpired());
         }
 
-        [HttpGet("{LicenseID:int}/isdetained")]
+        [HttpGet("{LicenseID:int}/is-detained")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<bool> IsLicenseDetained(int LicenseID)
@@ -64,7 +64,7 @@ namespace DVLD_API.Controllers
             return Ok(License.IsDetained());
         }
 
-        [HttpGet("{LicenseID:int}/hasinternationallicense")]
+        [HttpGet("{LicenseID:int}/has-international-license")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -124,7 +124,7 @@ namespace DVLD_API.Controllers
             return Ok(NewLicense);
         }
 
-        [HttpPost("issueinternationallicense/{LocalLicenseID:int}/{CreatedByUserID:int}")]
+        [HttpPost("issue-international-license/{LocalLicenseID:int}/{CreatedByUserID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -170,7 +170,7 @@ namespace DVLD_API.Controllers
             return Ok(DetentionID);
         }
 
-        [HttpPatch("Releaselicense/{LicenseID:int}/{ReleasedByUserID:int}")]
+        [HttpPatch("release-license/{LicenseID:int}/{ReleasedByUserID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

@@ -6,7 +6,7 @@ using System.Data;
 
 namespace DVLD_API.Controllers
 {
-    [Route("api/licenseclasses")]
+    [Route("api/license-classes")]
     [ApiController]  
     public class LicenseClassController : ControllerBase
     {

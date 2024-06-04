@@ -59,7 +59,7 @@ namespace DVLD_API.Controllers
             return Ok(User);
         }
 
-        [HttpPost("adduser")]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<int> AddNewUser([FromBody] AddUserDTO NewUser)

@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DVLD_API.Controllers
 {
-    [Route("api/takentests")]
+    [Route("api/taken-tests")]
     [ApiController]
     public class TakenTestController : ControllerBase
     {
-        [HttpGet("bytakentestid/{TakenTestID:int}")]
+        [HttpGet("by-taken-test-id/{TakenTestID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsTakenTest> GetTest(int TakenTestID)
@@ -21,7 +21,7 @@ namespace DVLD_API.Controllers
             return Ok(TakenTest);
         }
 
-        [HttpGet("byappointmentid/{AppointmentID:int}")]
+        [HttpGet("by-appointment-id/{AppointmentID:int}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<clsTakenTest> GetTestByAppointmentID(int AppointmentID)

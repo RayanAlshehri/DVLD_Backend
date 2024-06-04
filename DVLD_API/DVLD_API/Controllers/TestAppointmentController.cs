@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DVLD_API.Controllers
 {
-    [Route("api/testappointments")]
+    [Route("api/test-appointments")]
     [ApiController]
     public class TestAppointmentController : ControllerBase
     {
@@ -35,7 +35,7 @@ namespace DVLD_API.Controllers
             return Ok(Appointment);
         }
 
-        [HttpPost("addappointment")]
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<int> AddNewAppointment([FromBody] TestAppointmentDTO NewAppointment)
