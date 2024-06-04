@@ -64,7 +64,7 @@ namespace DVLD_API.Controllers
         {
             clsTestAppoinment Appointment = clsTestAppoinment.Find(AppointmentID);
 
-            if (Appointment != null)
+            if (Appointment == null)
                 return NotFound();
 
             if (!Appointment.ChangeTestDate(NewDate))
