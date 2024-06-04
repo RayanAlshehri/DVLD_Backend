@@ -66,7 +66,7 @@ namespace DVLD_API.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<int> AddLocalLicenseApplication([FromBody] LocalLicenseApplicationDTO NewApplication)
+        public ActionResult<int> AddLocalLicenseApplication([FromBody] AddLocalLicenseApplicationDTO NewApplication)
         {
             clsPerson Person = clsPerson.Find(NewApplication.ApplicantPersonID);
 
